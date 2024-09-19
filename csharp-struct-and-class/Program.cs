@@ -8,16 +8,25 @@
             public string name;
             public string surname;
             public string identifier;
+
+            public Person(string name, string surname, string identifier)
+            {
+                this.name = name;
+                this.surname = surname;
+                this.identifier = identifier;
+            }
         }
 
         static void Main(string[] args)
         {
-            Person Onur;
-            Onur.name = "Onur";
-            Onur.surname = "AKMESE";
-            Onur.identifier = "AOFDODODOD";
+            Person person;
+            person.name = "Onur";
+            person.surname = "AKMESE";
+            person.identifier = "AOFDODODOD";
+            Console.WriteLine($"{person.name} - {person.surname} - {person.identifier}");
 
-            Console.WriteLine($"{Onur.name} - {Onur.surname} - {Onur.identifier}");
+            Person person2 = new Person("Onur", "AKMESE", "AOFDODODOD");
+            Console.WriteLine($"{person2.name} - {person2.surname} - {person2.identifier}");
         }
     }
 }
