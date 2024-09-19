@@ -22,10 +22,22 @@
         {
             private string name;
             private string surname;
-            private string identifier;
-            private int age;
+
+            public string identifier {
+                get => identifier; 
+                set => identifier = !string.IsNullOrEmpty(identifier) ? identifier : "Incorrect identifier"; 
+            }
+            public int age { get; set; }
 
             // The number of arguments and their types allow us to differentiat between the constructor, the name here don't matter
+            public Person(string name, string surname, string identifier, int age)
+            {
+                this.name = name;
+                this.surname = surname;
+                this.identifier = identifier;
+                this.age = age;
+            }
+
             public Person(string name, string surname, string identifier)
             {
                 this.name = name;
@@ -89,14 +101,16 @@
             //Person person2 = new Person("Onur", "AKMESE", "AOFDODODOD");
             //Console.WriteLine($"{person2.name} - {person2.surname} - {person2.identifier}");
 
-            Person person = new Person("Onur", "AKMESE", "AOFDODODOD");
+            Person person = new Person("Onur", "AKMESE", "AOFDODODOD", 24);
             person.ReturnsDetails(person);
 
             person.SetName("Romain");
             person.ReturnsDetails(person);
 
             Console.WriteLine($"{person.GetName()}");
-            Console.WriteLine($"{person.GetIdenfitier()}");
+            Console.WriteLine($"{person.GetIdenfitier}");
+            Console.WriteLine($"{person.identifier}");
+            Console.WriteLine($"{person.age}");
 
         }
     }
