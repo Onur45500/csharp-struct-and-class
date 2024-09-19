@@ -50,6 +50,11 @@
                 this.age = age;
                 this.surname = "O";
             }
+
+            public void ReturnsDetails(Person person)
+            {
+                Console.WriteLine($"{person.name} - {person.surname} - {person.identifier}");
+            }
         }
 
         static void Main(string[] args)
@@ -64,6 +69,7 @@
             //Console.WriteLine($"{person2.name} - {person2.surname} - {person2.identifier}");
 
             Person person = new Person("Onur", "AKMESE", "AOFDODODOD");
+            person.ReturnsDetails(person);
 
         }
     }
