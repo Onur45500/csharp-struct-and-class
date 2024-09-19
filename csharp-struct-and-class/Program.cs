@@ -20,10 +20,10 @@
         // The difference with struct is the fact that the constructor can be empty and we can have multiple constructor
         class Person
         {
-            public string name;
-            public string surname;
-            public string identifier;
-            public int age;
+            private string name;
+            private string surname;
+            private string identifier;
+            private int age;
 
             // The number of arguments and their types allow us to differentiat between the constructor, the name here don't matter
             public Person(string name, string surname, string identifier)
@@ -51,6 +51,23 @@
                 this.surname = "O";
             }
 
+            public void SetName(string name)
+            {
+                if(!string.IsNullOrEmpty(name))
+                {
+                    this.name = name;
+                }
+                else
+                {
+                    this.name = "Invalid name";
+                }
+            }
+
+            public string GetName()
+            {
+                return name;
+            }
+
             public void ReturnsDetails(Person person)
             {
                 Console.WriteLine($"{person.name} - {person.surname} - {person.identifier}");
@@ -70,6 +87,11 @@
 
             Person person = new Person("Onur", "AKMESE", "AOFDODODOD");
             person.ReturnsDetails(person);
+
+            person.SetName("Romain");
+            person.ReturnsDetails(person);
+
+            Console.WriteLine($"{person.GetName()}");
 
         }
     }
