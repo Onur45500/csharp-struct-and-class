@@ -51,22 +51,26 @@
                 this.surname = "O";
             }
 
-            public void SetName(string name)
-            {
-                if(!string.IsNullOrEmpty(name))
-                {
-                    this.name = name;
-                }
-                else
-                {
-                    this.name = "Invalid name";
-                }
-            }
+            //public void SetName(string name)
+            //{
+            //    if(!string.IsNullOrEmpty(name))
+            //    {
+            //        this.name = name;
+            //    }
+            //    else
+            //    {
+            //        this.name = "Invalid name";
+            //    }
+            //}
+
+            public void SetName(string name) => this.name = !string.IsNullOrEmpty(name) ? name : "Invalid Name";
 
             public string GetName()
             {
                 return name;
             }
+
+            public string GetIdenfitier() => identifier;
 
             public void ReturnsDetails(Person person)
             {
@@ -92,6 +96,7 @@
             person.ReturnsDetails(person);
 
             Console.WriteLine($"{person.GetName()}");
+            Console.WriteLine($"{person.GetIdenfitier()}");
 
         }
     }
